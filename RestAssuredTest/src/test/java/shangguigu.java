@@ -9,6 +9,7 @@ public class shangguigu {
 
     @Test
     public void testMethod(){
+        System.out.println("master分支代码");
 
 
 
