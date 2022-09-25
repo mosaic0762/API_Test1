@@ -15,16 +15,18 @@ import java.io.IOException;
 public class httpRequest {
 
     /**
-     * @param url
      * @return get请求url, 以String形式返回请求结果
      */
     public String httpGetRequest(String url) {
+
         HttpGet httpGet = new HttpGet(url);
-        System.out.println(url);
+
         CloseableHttpClient httpClient = HttpClients.custom().build();
+
         try {
             CloseableHttpResponse response = httpClient.execute(httpGet);
             HttpEntity entity = response.getEntity();
+
             if (entity != null) {
                 String result = EntityUtils.toString(entity, "UTF-8");
                 System.out.println("--------------------------------------");
@@ -47,4 +49,12 @@ public class httpRequest {
     }
 
 
+    public static void main(String[] args) {
+
+        httpRequest httpRequest = new httpRequest();
+        String getRequest = httpRequest.httpGetRequest("http://httpbin.org/get");
+
+        System.out.println(getRequest);
+
+    }
 }
